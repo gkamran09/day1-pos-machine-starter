@@ -21,7 +21,7 @@ public class PosMachine {
                 total += subtotal;
             }
         }
-
+        appendReceiptFooter(receiptBuilder, total);
 
         return groupBarcodes.toString();
     }
@@ -47,5 +47,11 @@ public class PosMachine {
     private void appendReceiptLine(StringBuilder receiptBuilder, String name, long quantity, int price, int subtotal) {
         receiptBuilder.append(String.format("Name: %s, Quantity: %d, Unit price: %d (yuan), Subtotal: %d (yuan)\n",
                 name, quantity, price, subtotal));
+    }
+
+    private void appendReceiptFooter(StringBuilder receiptBuilder, int total) {
+        receiptBuilder.append("----------------------\n");
+        receiptBuilder.append(String.format("Total: %d (yuan)\n", total));
+        receiptBuilder.append("**********************");
     }
 }
