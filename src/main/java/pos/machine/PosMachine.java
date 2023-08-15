@@ -23,7 +23,7 @@ public class PosMachine {
         }
         appendReceiptFooter(receiptBuilder, total);
 
-        return groupBarcodes.toString();
+        return receiptBuilder.toString();
     }
 
     private Map<String, Long> groupAllBarcodes(List<String> barcodes) {
